@@ -1,2 +1,1 @@
-# EOSIVIEW
-An EOS blockchain viewer
+An EOS blockchain viewier
