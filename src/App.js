@@ -67,7 +67,10 @@ const App = () => {
 
   return (
     <main className={style.layout}>
-      <button onClick={loadMoreBlocks} disabled={loadingRecent}>Load More</button>
+      <div className={style.reloader}>
+        <h3>EOS Block Viewer</h3>
+        <button onClick={loadMoreBlocks} disabled={loadingRecent}>Load More</button>
+      </div>
       <table>
         <thead>
           <tr>
