@@ -1,7 +1,16 @@
+html {
+  background-color: #f1f3f6;
+}
+body {
+  margin: 20px 0;
+  font-family: 'Comfortaa', cursive;
+}
+
 main.layout {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-gap: 30px;
 }
 
 .reloader {
@@ -11,6 +20,24 @@ main.layout {
   align-items: center;
 }
 
-main table {
-  grid-area: 2 / 2 / 3 / 3
+/* Neumorphism styled button (for fun) taken from Codepen */
+.reloader > div {
+  min-width: 160px;
+  zoom: 0.7;
+}
+
+.tableWrapper {
+  grid-area: 2 / 2 / 3 / 3;
+  min-width: 800px;
+}
+
+table th,
+table td {
+  box-sizing:border-box;
+  padding: 15px;
+}
+
+table thead th {
+  background: #000;
+  color: #fff;
 }
