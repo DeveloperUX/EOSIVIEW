@@ -24,6 +24,33 @@ const getActionsCount = (block) => {
   return actionsCount;
 };
 
+const Expandable = ({block}) => {
+  const [expandRow, setExpandRow] = useState(false);
+
+  return (
+    <>
+      <tr onClick={() => setExpandRow(!expandRow)} className={style.expandable}>
+        <td>{block.id}</td>
+        <td>{block.timestamp}</td>
+        <td>{block.actionsCount}</td>
+      </tr>
+      {
+        expandRow && (
+          <tr className={style.detailPane}>
+            <td colSpan={3}>
+              <pre>
+                <code>
+                  {JSON.stringify(block)}
+                </code>
+              </pre>
+            </td>
+          </tr>
+        )
+      }
+    </>
+  )
+};
+
 const App = () => {
 
   const remoteBlockProducer = 'https://api.eosnewyork.io';
@@ -101,15 +128,12 @@ const App = () => {
           <tbody>
           {
             curBlocks.map( (block, i) => (
-              <tr key={i}>
-                <td>{block.id}</td>
-                <td>{block.timestamp}</td>
-                <td>{block.actionsCount}</td>
-              </tr>
+              <Expandable block={block} key={i} />
             ))
           }
           </tbody>
         </table>
+
         <Snackbar open={!!feedback} autoHideDuration={2000} onClose={() => setFeedback(null)}>
           <MuiAlert severity="success">
             {feedback}

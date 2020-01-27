@@ -31,6 +31,11 @@ main.layout {
   min-width: 800px;
 }
 
+table tr.expandable:hover {
+  background-color: #f0f6ff;
+  cursor: pointer;
+}
+
 table th,
 table td {
   box-sizing:border-box;
