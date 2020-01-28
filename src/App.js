@@ -3,7 +3,8 @@ import { JsonRpc } from 'eosjs';
 import style from './app.module.css';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import ProgressButton from 'react-progress-button'
+import ProgressButton from 'react-progress-button';
+import JsonTag from 'react-json-pretty';
 
 const getActionsCount = (block) => {
   let actionsCount = 0;
@@ -38,11 +39,8 @@ const Expandable = ({block}) => {
         expandRow && (
           <tr className={style.detailPane}>
             <td colSpan={3}>
-              <pre>
-                <code>
-                  {JSON.stringify(block)}
-                </code>
-              </pre>
+              {/*<JsonTag src={block} collapseStringsAfterLength={30} />*/}
+              <JsonTag data={block} mainStyle="white-space:pre-wrap;word-break:break-word" />
             </td>
           </tr>
         )
